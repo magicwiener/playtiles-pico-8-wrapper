@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pico-8 Touch Controls Collection</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<!--
+    <div id="reference">
+        <img src="background.png" />
+    </div>
+    -->
+
+    <!-- <div id="game"></div> 
+    <div id="controls-bg"> </div>-->
+    <div id="controls">
+         <button class="notch">-</button>
+      <div class="dpad">
+        <button class="dpad-btn up" aria-label="Up">▲</button>
+        <div class="dpad-middle">
+          <button class="dpad-btn left" aria-label="Left">◀</button>
+          <button class="dpad-btn center" disabled></button>
+          <button class="dpad-btn right" aria-label="Right">▶</button>
+        </div>
+        <button class="dpad-btn down" aria-label="Down">▼</button>
+      </div>
+      <div class="ab-buttons">
+          <button class="ab-btn x">X</button>
+          <button class="ab-btn o">O</button>
+        </div>
+        <div id="resize-bar">
+          <button id="resize-btn" aria-label="Resize Controls">⇕ Resize</button>
+        </div>
+        </div>
+        <script src="controls-resize.js"></script>
+    </div>
+</body>
+</html>

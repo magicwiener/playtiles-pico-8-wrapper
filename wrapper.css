@@ -1,0 +1,233 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #222;
+    color: #fff;
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+#reference {
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+    top: 0;
+    margin: auto;
+    display: flex;
+}
+
+#reference img {
+    height: 100%;
+    margin: auto;
+    opacity: 0.1;
+}
+
+body {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    min-height: 100vh;
+    overflow: hidden;
+    overscroll-behavior: none;
+    touch-action: none;  
+}
+
+/* #container {
+
+
+    
+   
+} */
+
+#game {
+    background: transparent;
+    width: 100vw;
+    height: 100vw;
+    aspect-ratio: 1 / 1;
+    margin-top: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 0 16px #80008088;
+}
+
+#controls {
+    width: 100%;
+    max-width: 400px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-top: 10vh;
+    padding-bottom: 2rem;
+    position: relative;
+    transform-origin: top center;
+    transition: transform 0.2s;
+    z-index: 2;
+    top: 50vh;
+}
+
+.dpad {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.2rem;
+}
+
+.dpad-middle {
+    display: flex;
+    flex-direction: row;
+    gap: 0.5rem;
+}
+
+.dpad-btn {
+    width: 48px;
+    height: 48px;
+    background: #444;
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    box-shadow: 0 2px 8px #0004;
+    touch-action: manipulation;
+}
+
+.dpad-btn.up {
+    margin-top: -19px;
+    margin-left: -2px;
+}
+
+.dpad-btn.left {
+    margin-top: 2px;
+    margin-left: 4px;
+}
+
+.dpad-btn.right {
+    margin-top: 2px;
+    margin-left: -12px;
+}
+
+.dpad-btn.center {
+    background: transparent;
+    box-shadow: none;
+}
+
+.ab-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: flex-end;
+}
+
+.notch {
+    width: 38px;
+    height: 38px;
+    background: #ff004d;
+    border: none;
+    border-radius: 50%;
+    position: absolute;
+    top: -40px;
+    left: calc(50% - 19px)
+}
+
+.ab-btn {
+    width: 56px;
+    height: 56px;
+    background: #ff004d;
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    font-size: 1.3rem;
+    font-weight: bold;
+    box-shadow: 0 2px 8px #0004;
+    margin-left: 1rem;
+    touch-action: manipulation;
+}
+
+#resize-bar {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    pointer-events: auto;
+}
+
+#resize-btn {
+    width: 120px;
+    height: 32px;
+    background: #800080;
+    color: #fff;
+    border: none;
+    border-radius: 16px 16px 0 0;
+    font-size: 1rem;
+    font-weight: bold;
+    box-shadow: 0 -2px 8px #0004;
+    cursor: ns-resize;
+    touch-action: none;
+    z-index: 2;
+    position: relative;
+}
+
+#resize-btn::after {
+    content: '';
+    display: block;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 100%;
+    width: 26px;
+    height: 64px;
+    background: #800080;
+    border-radius: 0 0 12px 12px;
+    box-shadow: 0 2px 8px #0004;
+    margin-top: -2px;
+}
+
+.ab-btn.x {
+    right: 73px;
+    top: -3px;
+    position: absolute;
+}
+
+.ab-btn.o {
+    right: 11px;
+    top: 65px;
+    width: 80px;
+    height: 80px;
+    position: absolute;
+}
+
+#p8_frame_0 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vw;
+}
+
+#controls-bg {
+    position: absolute;
+    height: 50vh;
+    width: 100vw;
+    bottom: 0;
+    background-color: purple;
+    opacity: 0.5;
+    z-index: 2;
+}
+
+#touch_controls_gfx {
+    display: none !important;
+}
