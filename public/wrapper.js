@@ -62,12 +62,22 @@ function init() {
     // Initialize
     setScale(1);
     // controls listeners
-    document.querySelector('.dpad-btn.left').addEventListener('touchstart', () => {
-        pico8_buttons[0] = 1
-    })
-        document.querySelector('.dpad-btn.left').addEventListener('touchend', () => {
-        pico8_buttons[0] = 0
-    })
+    const buttons = 
+    [ 
+        document.querySelector('.dpad-btn.left'),
+        document.querySelector('.dpad-btn.right'),
+        document.querySelector('.dpad-btn.up'),
+        document.querySelector('.dpad-btn.down'),
+        document.querySelector('.ab-btn.x'),
+        document.querySelector('.ab-btn.z')
+    ];
+    const [left, right, up, down, x, z ] = buttons;
+    buttons.forEach((btn, idx) => btn.addEventListener('touchstart', () => {
+        pico8_buttons[idx] = 1
+    }))
+    buttons.forEach((btn, idx) => btn.addEventListener('touchend', () => {
+        pico8_buttons[idx] = 0
+    }))
 }
 
 (async function run() {

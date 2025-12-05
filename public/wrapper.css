@@ -202,3 +202,7 @@ body {
     width: 100vw;
     height: 100vw;
 }
+
+#touch_controls_gfx {
+    display: none!important;
+}
