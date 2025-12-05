@@ -5,12 +5,14 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "serve": "pnpm exec serve public"
+    "serve": "pnpm exec serve public",
+    "deploy": "pnpm exec gh-pages -d public -b gh-pages -r https://github.com/magicwiener/playtiles-pico-8-wrapper.git"
   },
   "author": "",
   "license": "ISC"
   ,
   "devDependencies": {
+    "gh-pages": "^6.0.0",
     "serve": "^14.0.1"
   }
 }

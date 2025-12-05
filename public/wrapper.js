@@ -23,6 +23,18 @@ async function loadHtml(url) {
 }
 
 function init() {
+    // add PWA stuff to head
+    document.querySelector('head').innerHTML += `
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="PlaytilesPico8">
+    <link rel="manifest" href="/manifest.webmanifest">
+    <meta name="theme-color" content="#000000">
+
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    `
+
     // Controls resize logic for #controls
     const controls = document.getElementById('controls');
     const resizeBtn = document.getElementById('resize-btn');
@@ -33,7 +45,7 @@ function init() {
     let maxScale = 2.0;
 
     function setScale(scale) {
-        controls.style.transform = `scale(${scale}) translateY(${-80 + 50*scale}px)`;
+        controls.style.transform = `scale(${scale}) translateY(${-80 + 50 * scale}px)`;
         controls.dataset.scale = scale;
     }
 
@@ -62,22 +74,56 @@ function init() {
     // Initialize
     setScale(1);
     // controls listeners
-    const buttons = 
-    [ 
-        document.querySelector('.dpad-btn.left'),
-        document.querySelector('.dpad-btn.right'),
-        document.querySelector('.dpad-btn.up'),
-        document.querySelector('.dpad-btn.down'),
-        document.querySelector('.ab-btn.x'),
-        document.querySelector('.ab-btn.z')
-    ];
-    const [left, right, up, down, x, z ] = buttons;
+    // 1. i need to stop original event listener
+    // const originalPico8ButtonsEvent = window.pico8_buttons_event;
+    window.pico8_buttons_event = function(event, state) {
+    // noop
+    };
+    //P8_BUTTON_O
+
+    const buttons =
+        [
+            document.querySelector('.dpad-btn.left'),
+            document.querySelector('.dpad-btn.right'),
+            document.querySelector('.dpad-btn.up'),
+            document.querySelector('.dpad-btn.down'),
+            document.querySelector('.ab-btn.o'),
+            document.querySelector('.ab-btn.x')
+        ];
+
+    const state = [0, 0, 0, 0, 0, 0]
     buttons.forEach((btn, idx) => btn.addEventListener('touchstart', () => {
-        pico8_buttons[idx] = 1
+        state[idx] = 1
     }))
     buttons.forEach((btn, idx) => btn.addEventListener('touchend', () => {
-        pico8_buttons[idx] = 0
+        state[idx] = 0
     }))
+
+    function step() {
+        pico8_buttons[0] = 0
+        const [left, right, up, down, x, o] = state;
+        let b = 0;
+        if (left) {
+            b |= 0x1
+        } else if (right) {
+            b |= 0x2
+        }
+        if (up) {
+            b |= 0x4;
+        } else if (down) {
+            b |= 0x8;
+        }
+
+        if (x) {
+            b |= 0x10
+        }
+        if (o) {
+            b |= 0x20
+        }
+        pico8_buttons[0] |= b;
+        requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
 }
 
 (async function run() {

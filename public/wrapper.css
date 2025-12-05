@@ -7,6 +7,13 @@ body {
     display: flex;
     width: 100vw;
     height: 100vh;
+
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 #reference {
@@ -32,8 +39,12 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-     min-height: 100vh;
+    min-height: 100vh;
+    overflow: hidden;
+    overscroll-behavior: none;
+    touch-action: none;  
 }
+
 /* #container {
 
 
@@ -93,7 +104,7 @@ body {
 }
 
 .dpad-btn.up {
-    margin-top: 12px;
+    margin-top: -19px;
     margin-left: -2px;
 }
 
@@ -101,10 +112,12 @@ body {
     margin-top: 2px;
     margin-left: 4px;
 }
+
 .dpad-btn.right {
     margin-top: 2px;
     margin-left: -12px;
 }
+
 .dpad-btn.center {
     background: transparent;
     box-shadow: none;
@@ -124,7 +137,7 @@ body {
     border: none;
     border-radius: 50%;
     position: absolute;
-    top: -19px;
+    top: -40px;
     left: calc(50% - 19px)
 }
 
@@ -165,8 +178,9 @@ body {
     cursor: ns-resize;
     touch-action: none;
     z-index: 2;
-     position: relative;
+    position: relative;
 }
+
 #resize-btn::after {
     content: '';
     display: block;
@@ -184,12 +198,13 @@ body {
 
 .ab-btn.x {
     right: 73px;
-    top: 30px;
+    top: -3px;
     position: absolute;
 }
-.ab-btn.z {
+
+.ab-btn.o {
     right: 11px;
-    top: 98px;
+    top: 65px;
     width: 80px;
     height: 80px;
     position: absolute;
@@ -203,6 +218,16 @@ body {
     height: 100vw;
 }
 
+#controls-bg {
+    position: absolute;
+    height: 50vh;
+    width: 100vw;
+    bottom: 0;
+    background-color: purple;
+    opacity: 0.5;
+    z-index: 2;
+}
+
 #touch_controls_gfx {
-    display: none!important;
+    display: none !important;
 }
